@@ -1,4 +1,4 @@
-data = {
+population = {
     'year':'2000',
     'countries':{
         'china':{
@@ -10,4 +10,8 @@ data = {
             'total_deaths':'52325'
         }
     }
+}
+
+mortality_data={
+
 }

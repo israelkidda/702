@@ -1,12 +1,12 @@
-from data import data
+from data import population
 
 # Extract the necessary information from the data
-year = data['year']
-china_data = data['countries']['china']
+year = population['year']
+china_data = population['countries']['china']
 total_population_china = int(china_data['total_population'])
 total_deaths_china = int(china_data['total_deaths'])
 
-saudi_arabia_data = data['countries']['saudi_arabia']
+saudi_arabia_data = population['countries']['saudi_arabia']
 total_population_saudi_arabia = int(saudi_arabia_data['total_population'])
 total_deaths_saudi_arabia = int(saudi_arabia_data['total_deaths'])
 
