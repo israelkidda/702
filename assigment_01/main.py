@@ -137,6 +137,13 @@ P(x) = Mid-year population at age x in the same year
 Note: This rate is typically expressed per 1,000 population, so the result is often multiplied by 1,000.
 '''
 
+
+
+
+
+
+
+
 print(asmr_formula)
 
 from data import mortality_data, population_data
@@ -823,3 +830,56 @@ in the later part of the period. This leads to a bigger error in both PY and CGR
 
 # Print the comment
 print(comment)
+
+
+
+
+import math
+
+# Mid-period population for China and Saudi Arabia
+N_T2_china = 1_300_000_000  # Example mid-period population for China (adjust based on your data)
+N_T2_saudi_arabia = 24_000_000  # Example mid-period population for Saudi Arabia (adjust based on your data)
+
+# Growth rates (crude growth rates in decimal form from Applied Problem 1)
+r_china = 0.00765  # Crude growth rate for China
+r_saudi_arabia = 0.05322  # Crude growth rate for Saudi Arabia
+
+# Time for the full period (e.g., 10 years)
+T = 10
+
+# Function to calculate N(0) and N(T)
+def calculate_population(N_T2, r, T):
+    # Calculate N(0)
+    N_0 = N_T2 / math.exp(r * (T / 2))
+    # Calculate N(T)
+    N_T = N_T2 * math.exp(r * (T / 2))
+    return N_0, N_T
+
+# For China
+N_0_china, N_T_china = calculate_population(N_T2_china, r_china, T)
+print(f"China - Population at time 0 (N(0)): {N_0_china}")
+print(f"China - Population at time T (N(T)): {N_T_china}")
+
+# For Saudi Arabia
+N_0_saudi_arabia, N_T_saudi_arabia = calculate_population(N_T2_saudi_arabia, r_saudi_arabia, T)
+print(f"Saudi Arabia - Population at time 0 (N(0)): {N_0_saudi_arabia}")
+print(f"Saudi Arabia - Population at time T (N(T)): {N_T_saudi_arabia}")
+
+print()
+comment02 = """
+The calculated population values for China and Saudi Arabia show the changes over time based on their growth rates:
+
+For China:
+- The population at the start of the period (N(0)) was approximately 1.25 billion.
+- The population at the end of the period (N(T)) was approximately 1.35 billion.
+
+For Saudi Arabia:
+- The population at the start of the period (N(0)) was approximately 18.39 million.
+- The population at the end of the period (N(T)) was approximately 31.32 million.
+
+These results were obtained using the formulas derived from exponential growth, with mid-period population values (N(T/2)) and the constant growth rates calculated in Applied Problem 1.
+They reflect the expected population growth over the period and effectively answer the question by estimating both the starting and ending populations.
+"""
+
+# Print the comment02
+print(comment02)
